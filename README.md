@@ -4,18 +4,36 @@
 
 ```
 {
+  roles: {
+    [id]: { name }
+  },
   menus: {
-    [id]: { name, price },
-    [id]: { name, price },
+    [id]: { name, price, isVisible },
+    [id]: { name, price, isVisible },
   },
   seasons: {
     [id]: {
         metadata: { startsIn, endsIn },
-        subscriptions: [ user, user ]
+        subscriptions: [ [id]: true, [id]: false ],
+        days: {
+            [date]: {
+                menus: [],
+            }
+        },
+        isOpen,
+        isVisible
+    }
+  },
+  purchases: {
+    [id]: {
+        seasonId,
+        requestBy,
+        date,
+        isVisible
     }
   },
   users: {
-    [id]: { name, email }
+    [id]: { name, email, isVisible }
   },
   transactions: {
     [id]: { 
@@ -24,7 +42,8 @@
         amount, 
         transactionBy{user}, 
         acceptedBy{user},
-        accepted
+        accepted,
+        isVisible
     }
   }
 }
