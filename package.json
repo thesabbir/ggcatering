@@ -52,6 +52,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "classnames": "^2.2.5",
     "elemental": "^0.6.1",
+    "firebase": "^3.6.4",
     "lodash": "^4.17.2",
     "mobx": "^2.6.3",
     "mobx-react": "^3.5.9",
