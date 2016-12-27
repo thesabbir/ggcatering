@@ -1,7 +1,8 @@
 {
-  "name": "app",
+  "name": "ggcatering",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ggcattering.firebaseapp.com",
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
@@ -52,6 +53,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "classnames": "^2.2.5",
     "elemental": "^0.6.1",
+    "firebase": "^3.6.4",
     "lodash": "^4.17.2",
     "mobx": "^2.6.3",
     "mobx-react": "^3.5.9",
