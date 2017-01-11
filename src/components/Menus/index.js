@@ -7,21 +7,20 @@ class Menus extends Component {
   static defaultProps = {};
 
   handleAddNew = () => {
-    const dbRef = this.props.store.ref;
+    const { db } = this.props;
     const menu = {
       name: findDOMNode(this.refs.name).value,
       price: findDOMNode(this.refs.price).value,
     };
 
-    const id = dbRef.child('menus').push().key;
-    dbRef.update({
-      [`menus/${id}`]: menu
-    });
+    db.ref().child('menus').push(menu);
   };
 
   render() {
     return (
       <div>
+        <div>
+        </div>
         <div>
           <label>Name</label>
           <input ref="name" type="text"/>
@@ -37,4 +36,8 @@ class Menus extends Component {
   }
 }
 
-export default inject('store')(observer(Menus));
+export default inject(({ firebase }) => {
+  return ({
+    db: firebase.db,
+  });
+})(observer(Menus));
