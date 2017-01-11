@@ -1,5 +1,6 @@
-import Auth from './Auth';
 import Firebase from './Firebase';
+import Auth from './Auth';
+import Menu from './Menu';
 
 // Initialize Firebase
 const config = {
@@ -12,5 +13,10 @@ const config = {
 
 const firebase = new Firebase(config);
 const auth = new Auth(firebase.instance, firebase.facebookProvider);
+const menu = new Menu(firebase);
 
-export { auth, firebase };
+export {
+  firebase,
+  auth,
+  menu,
+};
