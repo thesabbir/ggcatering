@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'elemental';
 import 'elemental/less/elemental.less';
+
+import Menus from '../components/Menus';
 import './App.less';
 
-class App extends Component {
+class App extends Component { //eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div className="App">
@@ -16,6 +18,7 @@ class App extends Component {
 
           <Col sm="1/6">
             <div>Forms</div>
+            <Menus />
           </Col>
         </Row>
 
