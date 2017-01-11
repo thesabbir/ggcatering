@@ -1,19 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-import fire from '../../firebase';
 import { findDOMNode } from 'react-dom';
+import { inject, observer } from 'mobx-react';
 
 class Menus extends Component {
   static propTypes = {};
   static defaultProps = {};
 
   handleAddNew = () => {
+    const dbRef = this.props.store.ref;
     const menu = {
       name: findDOMNode(this.refs.name).value,
       price: findDOMNode(this.refs.price).value,
     };
 
-    const id = fire.database().ref().child('menus').push().key;
-    fire.database().ref().update({
+    const id = dbRef.child('menus').push().key;
+    dbRef.update({
       [`menus/${id}`]: menu
     });
   };
@@ -36,4 +37,4 @@ class Menus extends Component {
   }
 }
 
-export default Menus;
+export default inject('store')(observer(Menus));
